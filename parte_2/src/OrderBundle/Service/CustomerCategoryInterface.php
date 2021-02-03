@@ -4,8 +4,7 @@ namespace OrderBundle\Service;
 
 use OrderBundle\Entity\Customer;
 
-interface CustomerCategoryInterface
-{
+interface CustomerCategoryInterface{
     public function isEligible(Customer $customer);
     public function getCategoryName();
 }

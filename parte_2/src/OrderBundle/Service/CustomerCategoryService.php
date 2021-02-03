@@ -11,14 +11,9 @@ class CustomerCategoryService
     const CATEGORY_MEDIUM_USER = 'medium-user';
     const CATEGORY_HEAVY_USER = 'heavy-user';
 
-    private $categories;
+    private $categories = [];
 
-    public function addCategory(CustomerCategoryInterface $category)
-    {
-        $this->categories[] = $category;
-    }
-
-    public function getUsageCategory(Customer $customer)
+    public function getUserCategory(Customer $customer)
     {
         foreach ($this->categories as $category) {
             if ($category->isEligible($customer)) {
@@ -26,4 +21,9 @@ class CustomerCategoryService
             }
         }
     }
+
+    public function addCategory(CustomerCategoryInterface $category){
+        $this->categories[] = $category;
+    }
+
 }
